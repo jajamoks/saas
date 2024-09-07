@@ -1,0 +1,56 @@
+name: code-quality
+on: 
+  - pull_request
+jobs:
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code.
+        uses: actions/checkout@v4.1.0
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/yarn-nm-install
+      - name: eslint
+        run: |
+          yarn check:lint
+  typings:
+    name: type checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code.
+        uses: actions/checkout@v4.1.0
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/yarn-nm-install
+      - name: tsc
+        run: |
+          yarn check:types
+  misspell:
+    name: misspell
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code.
+        uses: actions/checkout@v4.1.0
+      - name: misspell
+        uses: reviewdog/action-misspell@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          exclude: |
+            ./yarn.lock
+            ./.yarn/*
+            */languages.json
+          locale: 'US'
+          level: error
+          reporter: github-pr-check
+          filter_mode: nofilter

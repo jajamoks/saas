@@ -1,0 +1,51 @@
+{
+  "name": "@volca/dashboard",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "apexcharts": "^3.44.2",
+    "aws-amplify": "^5.2.5",
+    "date-fns": "^2.30.0",
+    "framer-motion": "^10.12.16",
+    "ky": "^0.33.3",
+    "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.11",
+    "react-hook-form": "^7.44.3",
+    "react-icons": "^4.9.0",
+    "react-router-dom": "^6.12.1",
+    "uuid": "^9.0.0",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "@chakra-ui/icons": "^2.0.19",
+    "@chakra-ui/react": "^2.7.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@sentry/react": "^7.61.0",
+    "@tanstack/react-query": "^4.33.0",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@types/uuid": "^9.0.2",
+    "@types/zxcvbn": "^4.4.1",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "vite": "^5.0.8",
+    "vite-tsconfig-paths": "^4.2.3"
+  },
+  "scripts": {
+    "start:dev": "./scripts/exec-with-env.ts local vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "build:local": "./scripts/exec-with-env.ts local yarn build",
+    "build:staging": "./scripts/exec-with-env.ts staging yarn build",
+    "build:production": "./scripts/exec-with-env.ts production yarn build",
+    "check:lint": "eslint ./src"
+  }
+}

@@ -1,0 +1,95 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  ################################
+  ## Deploy to staging
+  ################################
+
+  deploy-certificates-staging:
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy certificates staging
+    uses: ./.github/workflows/deploy-certificates.yml
+    with:
+      environment: staging
+
+  deploy-api-staging:
+    needs: deploy-certificates-staging
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy api staging
+    uses: ./.github/workflows/deploy-api.yml
+    with:
+      environment: staging
+
+  deploy-webapp-staging:
+    needs: deploy-certificates-staging
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy dashboard staging
+    uses: ./.github/workflows/deploy-dashboard.yml
+    with:
+      environment: staging
+
+  deploy-landing-page-staging:
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy landing page staging
+    needs: deploy-certificates-staging
+    uses: ./.github/workflows/deploy-landing-page.yml
+    with:
+      environment: staging
+
+  ################################
+  ## Deploy to production
+  ################################
+
+  deploy-certificates-production:
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy certificates production
+    uses: ./.github/workflows/deploy-certificates.yml
+    needs:
+      - deploy-api-staging
+      - deploy-webapp-staging
+      - deploy-landing-page-staging
+    with:
+      environment: production
+
+  deploy-api-production:
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy api production
+    needs: deploy-certificates-production
+    uses: ./.github/workflows/deploy-api.yml
+    with:
+      environment: production
+
+  deploy-dashboard-production:
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy dashboard production
+    uses: ./.github/workflows/deploy-dashboard.yml
+    needs: deploy-certificates-production
+    with:
+      environment: production
+
+  deploy-landing-page-production:
+    permissions:
+      id-token: write
+      contents: read
+    name: deploy landing page production
+    needs: deploy-certificates-production
+    uses: ./.github/workflows/deploy-landing-page.yml
+    with:
+      environment: production

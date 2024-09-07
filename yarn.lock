@@ -7802,7 +7802,6 @@ __metadata:
     "@typescript-eslint/parser": ^6.0.0
     "@vitejs/plugin-react": ^4.0.3
     compression: ^1.7.4
-    crisp-sdk-web: ^1.0.21
     cross-env: ^7.0.3
     eslint: ^8.45.0
     eslint-plugin-react-hooks: ^4.6.0
@@ -7814,7 +7813,7 @@ __metadata:
     react-dom: ^18.2.0
     react-icons: ^4.11.0
     sirv: ^2.0.3
-    sitemap: ^7.1.1
+    sitemap: ^8.0.0
     tsx: "*"
     vike: ^0.4.153
     vite: ^4.4.5
@@ -9669,13 +9668,6 @@ __metadata:
   version: 1.1.1
   resolution: "create-require@npm:1.1.1"
   checksum: a9a1503d4390d8b59ad86f4607de7870b39cad43d929813599a23714831e81c520bddf61bcdd1f8e30f05fd3a2b71ae8538e946eb2786dc65c2bbc520f692eff
-  languageName: node
-  linkType: hard
-
-"crisp-sdk-web@npm:^1.0.21":
-  version: 1.0.21
-  resolution: "crisp-sdk-web@npm:1.0.21"
-  checksum: d5f4109698451e25da8b730151ba957e07c3193181673fecfcb88070362e5964ba2f67166a57358ad7ad0b7697f30b525266424111d8a988914a0b0ec0eb1576
   languageName: node
   linkType: hard
 
@@ -16988,9 +16980,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sitemap@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "sitemap@npm:7.1.1"
+"sitemap@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "sitemap@npm:8.0.0"
   dependencies:
     "@types/node": ^17.0.5
     "@types/sax": ^1.2.1
@@ -16998,7 +16990,7 @@ __metadata:
     sax: ^1.2.4
   bin:
     sitemap: dist/cli.js
-  checksum: 87a6d21b0d4a33b8c611d3bb8543d02b813c0ebfce014213ef31849b5c1439005644f19ad1593ec89815f6101355f468c9a02c251d09aa03f6fddd17e23c4be4
+  checksum: 1867d86a8948acdf1ca2ffee06d43eab4317dbfb40f62a7ce122ffa9526fea5adb5ad58d2389e0f6fab24dac65ff7a8136c35a1bbf16a0e161d11e5a58fc280e
   languageName: node
   linkType: hard
 

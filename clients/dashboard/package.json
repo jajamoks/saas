@@ -37,7 +37,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.0.8",
-    "vite-tsconfig-paths": "^4.2.3"
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "scripts": {
     "start:dev": "./scripts/exec-with-env.ts local vite",
